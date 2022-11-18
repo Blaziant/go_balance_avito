@@ -15,6 +15,10 @@
 - <code>/favour/</code> - создать услугу
 - <code>/favour/:id</code> - получить услугу по id
 
+```json
+{ "order_id" : 1 } 
+```
+
 ## Описание методов заказа:
 - <code>/order/</code> - создать заказ:
   - <code>{ "favours_id" : [1,2,3], "user_id": 1 } </code>
