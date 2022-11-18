@@ -4,18 +4,21 @@
 
 - <code>docker-compose up --build</code>
 
-## Описание методов пользователя
-/user/ - создать пользователя
-/user/:id/balance - возвращает баланс 
-/user/debit_balance -  отнять сумму от баланса
-/user/replenish_balance - добавить сумму к балансу
-/user/transfer_money - перевод баланса от одного пользователя к другому
+## Пользователь
+Описание методов:
+- <code>/user/</code> - создать пользователя
+- <code>/user/:id/balance</code> - возвращает баланс 
+- <code>/user/debit_balance</code> -  отнять сумму от баланса
+- <code>/user/replenish_balance</code> - добавить сумму к балансу
+- <code>/user/transfer_money</code> - перевод баланса от одного пользователя к другому
 
-## Описание методов услуги
-/favour/ - создать услугу
-/favour/:id - получить услугу по id
+## Услуга
+Описание методов:
+- <code>/favour/</code> - создать услугу
+- <code>/favour/:id</code> - получить услугу по id
 
-## Описание методов заказа
-/order/ - создать заказ
-/order/reserve_money - резервация средств
-/order/accept - принятие заказа, принятие выручки
+## Заказ
+Описание методов:
+- <code>/order/</code> - создать заказ
+- <code>/order/reserve_money</code> - резервация средств
+- <code>/order/accept</code> - принятие заказа, принятие выручки
