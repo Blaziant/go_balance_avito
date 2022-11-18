@@ -5,7 +5,7 @@
 - <code>docker-compose up --build</code>
 
 ## Описание методов пользователя:
-- <code>/api/v1/user/:id/balance</code> - возвращает баланс
+- GET <code>/api/v1/user/:id/balance</code> - возвращает баланс
 - <code>/api/v1/user/</code> - создать пользователя
   ```json
   { 
@@ -49,7 +49,7 @@
 - <code>/api/v1/order/</code> - создать заказ
   ```json
   { 
-    "favours_id" : "массив индексов услуг в этом заказе",
+    "favours_id" : "Массив индексов услуг в этом заказе",
     "user_id": "id пользователя, который сделал заказ"
   } 
   ```
