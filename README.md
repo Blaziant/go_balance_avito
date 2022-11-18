@@ -16,8 +16,10 @@
 - <code>/favour/:id</code> - получить услугу по id
 
 ## Описание методов заказа:
-- <code>/order/</code> - создать заказ
-- <code>/order/reserve_money</code> - резервация средств
+- <code>/order/</code> - создать заказ:
+  - <code>{ "favours_id" : [1,2,3], "user_id": 1 } </code>
+- <code>/order/reserve_money</code> - резервация средств:
+  - <code>{ "order_id" : 1 } </code>
 - <code>/order/accept</code> - принятие выручки:
   - <code>{ "order_id" : 1 } </code>
 - <code>/order/report</code> - отчет для бухгалтерии:
