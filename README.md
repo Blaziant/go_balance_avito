@@ -24,6 +24,7 @@
   - ```json
   { 
     "order_id" : 1 
-  } ```
+  } 
+  ```
 - <code>/order/report</code> - отчет для бухгалтерии:
   - <code>{"begin" : "2021-11-18", "end" : "2023-11-18"} </code>
