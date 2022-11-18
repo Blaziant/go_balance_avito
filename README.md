@@ -5,13 +5,13 @@
 - <code>docker-compose up --build</code>
 
 ## Описание методов пользователя:
+- <code>/user/:id/balance</code> - возвращает баланс
 - <code>/user/</code> - создать пользователя
   ```json
   { 
     "balance" : 100000.0,
   } 
   ```
-- <code>/user/:id/balance</code> - возвращает баланс
 - <code>/user/debit_balance</code> -  отнять сумму от баланса
   ```json
   { 
@@ -36,6 +36,7 @@
   ```
 
 ## Описание методов услуги:
+- <code>/favour/:id</code> - получить услугу по id
 - <code>/favour/</code> - создать услугу
   ```json
   { 
@@ -43,7 +44,6 @@
     "price" : 10000.0
   } 
   ```
-- <code>/favour/:id</code> - получить услугу по id
 
 ## Описание методов заказа:
 - <code>/order/</code> - создать заказ
