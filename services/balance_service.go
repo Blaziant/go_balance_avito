@@ -7,9 +7,9 @@ import (
 )
 
 type TransferMoneySchema struct {
-	FromId uint    `json:"from_id"`
-	ToId   uint    `json:"to_id"`
-	Amount float64 `json:"amount"`
+	FromId uint    `json:"from_id" binding:"required"`
+	ToId   uint    `json:"to_id" binding:"required"`
+	Amount float64 `json:"amount" binding:"required"`
 }
 
 func TranserMoneyService(db *gorm.DB, data *TransferMoneySchema) error {

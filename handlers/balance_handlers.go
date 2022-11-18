@@ -10,8 +10,8 @@ import (
 )
 
 type ChangeBalanceSchema struct {
-	Amount float64 `json:"amount"`
-	UserId uint    `json:"user_id"`
+	Amount float64 `json:"amount" binding:"required"`
+	UserId uint    `json:"user_id" binding:"required"`
 }
 
 func ReplenishBalance(context *gin.Context) {
@@ -36,7 +36,7 @@ func ReplenishBalance(context *gin.Context) {
 }
 
 type GetBalanceSchema struct {
-	UserId uint `json:"user_id"`
+	UserId uint `json:"user_id" binding:"required"`
 }
 
 func GetBalance(context *gin.Context) {

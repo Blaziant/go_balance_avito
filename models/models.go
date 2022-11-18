@@ -14,16 +14,16 @@ type Favour struct {
 	gorm.Model
 	Name   string   `json:"name"`
 	Price  float64  `json:"price"`
-	Orders []*Order `gorm:"many2many:order_favours;"`
+	Orders []*Order `gorm:"many2many:order_favours;" json:"-"`
 }
 
 type Order struct {
 	gorm.Model
-	TotalPrice       float64
+	TotalPrice       float64   `json:"total_price"`
+	UserID           uint      `json:"user_id"`
+	Accepted         bool      `json:"accepted"`
 	Favours          []*Favour `gorm:"many2many:order_favours;"`
-	UserID           uint    
 	ReserveAccountID *uint
-	Accepted         bool
 }
 
 type ReserveAccount struct {

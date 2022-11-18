@@ -18,4 +18,5 @@
 ## Описание методов заказа:
 - <code>/order/</code> - создать заказ
 - <code>/order/reserve_money</code> - резервация средств
-- <code>/order/accept</code> - принятие заказа, принятие выручки
+- <code>/order/accept</code> - принятие выручки
+- <code>/order/report</code> - отчет для бухгалтерии

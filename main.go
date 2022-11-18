@@ -37,6 +37,7 @@ func initRouters() *gin.Engine {
 
 		order := api.Group("/order")
 		{
+			order.GET("/report", handlers.BookkeepingReport)
 			order.POST("/accept", handlers.AcceptOrder)
 			order.POST("/reserve_money", handlers.ReserveMoney)
 			order.POST("", handlers.CreateOrder)

@@ -22,7 +22,7 @@ func ReserveMoneyService(order_id uint, db *gorm.DB) error {
 		return result.Error
 	}
 	if order.ReserveAccountID != nil {
-		return &errors.NegativePrice{} // TODO: новая ошибка
+		return &errors.ReserveAccountUsed{Message: "Reserve account used"}
 	}
 
 	reserve_account := models.ReserveAccount{Order: order}

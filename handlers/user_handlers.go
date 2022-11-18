@@ -11,7 +11,7 @@ import (
 func CreateUser(context *gin.Context) {
 	var user models.User
 	if err := context.ShouldBindJSON(&user); err != nil {
-		context.JSON(http.StatusBadRequest, gin.H{"erroe": err.Error()})
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
 	}
@@ -21,5 +21,5 @@ func CreateUser(context *gin.Context) {
 		context.Abort()
 		return
 	}
-	context.JSON(http.StatusCreated, gin.H{"userId": user.ID, "userBalance": user.Balance})
+	context.JSON(http.StatusCreated, gin.H{"user_id": user.ID, "user_balance": user.Balance})
 }

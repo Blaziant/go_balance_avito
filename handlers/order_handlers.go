@@ -2,11 +2,13 @@ package handlers
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/Blaziant/go_balance_avito/database"
 	"github.com/Blaziant/go_balance_avito/models"
 	"github.com/Blaziant/go_balance_avito/services"
 	"github.com/gin-gonic/gin"
+	"gorm.io/gorm/clause"
 )
 
 type CreateOrderSchema struct {
@@ -76,4 +78,40 @@ func ReserveMoney(context *gin.Context) {
 		return
 	}
 	context.JSON(http.StatusOK, gin.H{"status": "ok"})
+}
+
+type BookkeepingReportSchema struct {
+	BeginAt string `json:"begin" binding:"required"`
+	EndAt   string `json:"end" binding:"required"`
+}
+
+func BookkeepingReport(context *gin.Context) {
+	var period BookkeepingReportSchema
+	if err := context.ShouldBindJSON(&period); err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		context.Abort()
+		return
+	}
+
+	begin_date, err := time.Parse("2006-01-02", period.BeginAt)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		context.Abort()
+		return
+	}
+
+	end_date, err := time.Parse("2006-01-02", period.EndAt)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		context.Abort()
+		return
+	}
+
+	var orders []*models.Order
+	if result := database.Instance.Where("accepted = ?", true).Where("created_at between ? and ?", begin_date, end_date).Preload(clause.Associations).Find(&orders); result.Error != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": result.Error.Error()})
+		context.Abort()
+		return
+	}
+	context.JSON(http.StatusOK, gin.H{"orders": orders})
 }

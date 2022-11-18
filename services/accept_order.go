@@ -17,6 +17,10 @@ func AcceptOrderService(order_id uint, db *gorm.DB) error {
 		return result.Error
 	}
 
+	if order.Accepted == true {
+		return &errors.AcceptedOrder{Message: "Order already accepted"}
+	}
+
 	if reserve_account.Balance < order.TotalPrice {
 		return &errors.NotEnoughtMoneyError{Message: "Reserve account does not have enough money"}
 	}
