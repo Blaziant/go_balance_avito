@@ -4,8 +4,7 @@
 
 - <code>docker-compose up --build</code>
 
-## Пользователь
-Описание методов:
+## Пользователь:
 - <code>/user/</code> - создать пользователя
 - <code>/user/:id/balance</code> - возвращает баланс 
 - <code>/user/debit_balance</code> -  отнять сумму от баланса
