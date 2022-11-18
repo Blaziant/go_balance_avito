@@ -26,8 +26,8 @@
   - <code>{ "favours_id" : [1,2,3], "user_id": 1 } </code>
 - <code>/order/reserve_money</code> - резервация средств:
   - <code>{ "order_id" : 1 } </code>
-- <code>/order/accept</code> - принятие выручки:
-  - ```json
+- <code>/order/accept</code> - принятие выручки 
+  ```json
   { 
     "order_id" : 1 
   } 
