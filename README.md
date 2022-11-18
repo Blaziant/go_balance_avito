@@ -6,20 +6,44 @@
 
 ## Описание методов пользователя:
 - <code>/user/</code> - создать пользователя
-- <code>/user/:id/balance</code> - возвращает баланс 
+  ```json
+  { 
+    "balance" : 100000.0,
+  } 
+  ```
+- <code>/user/:id/balance</code> - возвращает баланс
 - <code>/user/debit_balance</code> -  отнять сумму от баланса
+  ```json
+  { 
+    "amount" : 10.0,
+    "user_id" : 1
+  } 
+  ```
 - <code>/user/replenish_balance</code> - добавить сумму к балансу
+  ```json
+  { 
+    "amount" : 11.1,
+    "user_id" : 1
+  } 
+  ```
 - <code>/user/transfer_money</code> - перевод баланса от одного пользователя к другому
+  ```json
+  { 
+    "from_id" : 1,
+    "to_id" : 2,
+    "amount" : 100.0
+  }
+  ```
 
 ## Описание методов услуги:
 - <code>/favour/</code> - создать услугу
+  ```json
+  { 
+    "name" : "колонка",
+    "price" : 10000.0
+  } 
+  ```
 - <code>/favour/:id</code> - получить услугу по id
-
-```json
-{ 
-    "order_id" : 1
-} 
-```
 
 ## Описание методов заказа:
 - <code>/order/</code> - создать заказ
@@ -43,7 +67,7 @@
   ```
 - <code>/order/report</code> - отчет для бухгалтерии
   ```json
-  { 
+  {
     "begin" : "2021-11-18", 
     "end" : "2023-11-18"
   } 
