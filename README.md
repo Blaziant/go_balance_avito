@@ -21,6 +21,9 @@
 - <code>/order/reserve_money</code> - резервация средств:
   - <code>{ "order_id" : 1 } </code>
 - <code>/order/accept</code> - принятие выручки:
-  - <code>{ "order_id" : 1 } </code>
+  - <code>```json
+  { 
+    "order_id" : 1 
+  } ```</code>
 - <code>/order/report</code> - отчет для бухгалтерии:
   - <code>{"begin" : "2021-11-18", "end" : "2023-11-18"} </code>
