@@ -6,69 +6,69 @@
 
 ## Описание методов пользователя:
 - GET <code>/api/v1/user/:id/balance</code> - возвращает баланс
-- <code>/api/v1/user/</code> - создать пользователя
+- POST <code>/api/v1/user/</code> - создать пользователя
   ```json
   { 
-    "balance" : "Баланс пользователя",
+    "balance" : "Баланс пользователя float64",
   } 
   ```
-- <code>/api/v1/user/debit_balance</code> -  отнять сумму от баланса
+- POST <code>/api/v1/user/debit_balance</code> -  отнять сумму от баланса
   ```json
   { 
-    "amount" : "На сколько нужно уменьшить",
-    "user_id" : "id пользователя"
+    "amount" : "На сколько нужно уменьшить float64",
+    "user_id" : "id пользователя uint"
   } 
   ```
-- <code>/api/v1/user/replenish_balance</code> - добавить сумму к балансу
+- POST <code>/api/v1/user/replenish_balance</code> - добавить сумму к балансу
   ```json
   { 
-    "amount" : "На сколько нужно увеличить",
-    "user_id" : "id пользователя"
+    "amount" : "На сколько нужно увеличить float64",
+    "user_id" : "id пользователя uint"
   } 
   ```
-- <code>/api/v1/user/transfer_money</code> - перевод баланса от одного пользователя к другому
+- POST <code>/api/v1/user/transfer_money</code> - перевод баланса от одного пользователя к другому
   ```json
   { 
-    "from_id" : "id пользователя откуда переводить",
-    "to_id" : "id пользователя куда переводить",
-    "amount" : "Сколько нужно перевести средств"
+    "from_id" : "id пользователя откуда переводить uint",
+    "to_id" : "id пользователя куда переводить uint",
+    "amount" : "Сколько нужно перевести средств float64"
   }
   ```
 
 ## Описание методов услуги:
-- <code>/api/v1/favour/:id</code> - получить услугу по id
-- <code>/api/v1/favour/</code> - создать услугу
+- GET <code>/api/v1/favour/:id</code> - получить услугу по id
+- POST <code>/api/v1/favour/</code> - создать услугу
   ```json
   { 
-    "name" : "Название услуги",
-    "price" : "Цена услуги"
+    "name" : "Название услуги string",
+    "price" : "Цена услуги float64"
   } 
   ```
 
 ## Описание методов заказа:
-- <code>/api/v1/order/</code> - создать заказ
+- POST <code>/api/v1/order/</code> - создать заказ
   ```json
   { 
-    "favours_id" : "Массив индексов услуг в этом заказе",
-    "user_id": "id пользователя, который сделал заказ"
+    "favours_id" : "Массив индексов услуг в этом заказе []uint",
+    "user_id": "id пользователя, который сделал заказ uint"
   } 
   ```
-- <code>/api/v1/order/reserve_money</code> - резервация средств
+- POST <code>/api/v1/order/reserve_money</code> - резервация средств
   ```json
   { 
-    "order_id" : "id заказа для резервирования средств"
+    "order_id" : "id заказа для резервирования средств uint"
   } 
   ```
-- <code>/api/v1/order/accept</code> - принятие выручки 
+- POST <code>/api/v1/order/accept</code> - принятие выручки 
   ```json
   { 
-    "order_id" : "id заказа для принятия заказа"
+    "order_id" : "id заказа для принятия заказа uint"
   } 
   ```
-- <code>/api/v1/order/report</code> - отчет для бухгалтерии
+- GET <code>/api/v1/order/report</code> - отчет для бухгалтерии
   ```json
   {
-    "begin" : "Дата начала для отчёта в виде строки (2021-11-18)", 
-    "end" : "Дата начала для отчёта в виде строки (2023-11-18)"
+    "begin" : "Дата начала для отчёта в виде (2021-11-18) string", 
+    "end" : "Дата начала для отчёта в виде (2023-11-18) string"
   } 
   ```
